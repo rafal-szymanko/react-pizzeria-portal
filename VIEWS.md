@@ -4,7 +4,7 @@
     - listę rezerwacji i eventów zaplanowanych na dzisiaj
 
 # Logowanie
-- `/login/`
+- `/login`
     - pola na login i hasło
     - guzik do zalogowania (link do dashboardu)
 
