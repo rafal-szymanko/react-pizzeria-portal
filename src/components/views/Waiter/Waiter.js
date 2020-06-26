@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Waiter.module.scss';
 import {Link} from 'react-router-dom';
 
-const id = '123abc';
+const id = 'abc123';
 
 
 const Waiter = () => (

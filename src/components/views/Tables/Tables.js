@@ -9,10 +9,10 @@ const Tables = () => (
     <h2>Tables View</h2>
     <p>{id}</p>
     <div>
-      <Link to={`/tables/booking/new`}>New booking</Link>
-      <Link to={`/tables/booking/${id}`}>Currently Bookings</Link>
-      <Link to={`/tables/events/new`}>New events</Link>
-      <Link to={`/tables/events/${id}`}>Currently events</Link>
+      <Link to={`tables/booking/new`}>New booking</Link>
+      <Link to={`tables/booking/${id}`}>Currently Bookings</Link>
+      <Link to={`tables/events/new`}>New events</Link>
+      <Link to={`tables/events/${id}`}>Currently events</Link>
     </div>
 
   </div>

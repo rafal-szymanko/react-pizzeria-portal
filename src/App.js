@@ -7,10 +7,13 @@ import Dashboard from '../src/components/views/Dashboard/Dashboard';
 import Kitchen from '../src/components/views/Kitchen/Kitchen';
 import Login from '../src/components/views/Login/Login';
 import Tables from '../src/components/views/Tables/Tables';
-// import TablesBooking from './components/views/TablesBoking/TablesBooking';
-// import TablesEvent from './components/views/TablesEvent/TablesEvent';
+import TablesNewBooking from './components/views/Tables/TablesNewBooking/TablesNewBooking';
+import TablesCurrentlyBooking from './components/views/Tables/TablesCurrentlyBooking/TablesCurrentlyBooking';
+import TablesNewEvent from './components/views/Tables/TablesNewEvent/TablesNewEvent';
+import TablesCurrentlyEvent from './components/views/Tables/TablesCurrentlyEvent/TablesCurrentlyEvent';
 import Waiter from '../src/components/views/Waiter/Waiter';
-// import WaiterOrder from '../src/components/views/Waiter/WaiterOrder';
+import WaiterNewOrder from './components/views/Waiter/WaiterNewOrder/WaiterNewOrder';
+import WaiterCurrentlyOrder from './components/views/Waiter/WaiterCurrentlyOrder/WaiterCurrentlyOrder';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -24,6 +27,8 @@ const theme = createMuiTheme({
     // },
   },
 });
+
+const id = 'abc123';
 
 const routes = [
   {
@@ -43,9 +48,34 @@ const routes = [
     component: Tables,
   },
   {
+    path: '/tables/booking/new',
+    component: TablesNewBooking,
+  },
+  {
+    path: `/tables/booking/${id}`,
+    component: TablesCurrentlyBooking,
+  },
+  {
+    path: '/tables/events/new',
+    component: TablesNewEvent,
+  },
+  {
+    path: `/tables/events/${id}`,
+    component: TablesCurrentlyEvent,
+  },
+  {
     path: '/waiter',
     component: Waiter,
   },
+  {
+    path: '/waiter/order/new',
+    component: WaiterNewOrder,
+  },
+  {
+    path: `/waiter/order/${id}`,
+    component: WaiterCurrentlyOrder,
+  },
+  
 ];
 
 
