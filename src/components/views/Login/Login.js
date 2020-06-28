@@ -17,9 +17,7 @@ const Login = () => (
             <Input placeholder="password..."></Input>
           </Grid>
           <Grid item>
-            <Link to={`${process.env.PUBLIC_URL}/`}>
-              <Button variant="contained" color="primary">Sign in</Button>
-            </Link>          
+            <Button component={Link} to={`${process.env.PUBLIC_URL}/`} variant="contained" color="primary">Sign in</Button>
           </Grid>
         </Grid>
       </Grid>
