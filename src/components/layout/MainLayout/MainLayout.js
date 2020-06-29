@@ -31,6 +31,7 @@ import Container from '@material-ui/core/Container';
 
 import React from 'react';
 import clsx from 'clsx';
+import {Link} from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -150,6 +151,7 @@ export default function MainLayout(props) {
     setOpen(false);
   };
 
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -195,7 +197,7 @@ export default function MainLayout(props) {
         <Divider />
         <List>
           {routes.map(route => (
-            <ListItem button key={route.path}>
+            <ListItem component={Link} to={route.path} button key={route.path}>
               <ListItemIcon>{route.icon}</ListItemIcon>
               <ListItemText primary={route.name} />
             </ListItem>
