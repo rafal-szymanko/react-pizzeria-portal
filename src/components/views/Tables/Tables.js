@@ -7,7 +7,18 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+import Paper from '@material-ui/core/Paper';
+import { ViewState } from '@devexpress/dx-react-scheduler';
+import {
+  Scheduler,
+  DayView,
+  Appointments,
+} from '@devexpress/dx-react-scheduler-material-ui';
 
+const schedulerData = [
+  { startDate: '2018-11-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
+  { startDate: '2018-11-01T12:00', endDate: '2018-11-01T13:30', title: 'Go to a gym' },
+];
 
 export default function Tables() {
   // The first commit of Material-UI
@@ -46,6 +57,20 @@ export default function Tables() {
           />
         </Grid>
       </MuiPickersUtilsProvider>
+      <Paper>
+        <Scheduler
+          data={schedulerData}
+        >
+          <ViewState
+            currentViewName	="sdsdsds"
+          />
+          <DayView
+            startDayHour={12}
+            endDayHour={24}
+          />
+          <Appointments />
+        </Scheduler>
+      </Paper>
     </div>
   );
 }
