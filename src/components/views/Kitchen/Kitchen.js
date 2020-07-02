@@ -35,7 +35,7 @@ function createData(bookingID, table, complited) {
     table,
     complited,
     details: [
-      { people: 3, duration: 2, starters: 'bread', contact: '555 555 555'},
+      { name: `Nonna Alba's Pizza`, sauce: 'tomato', toppings: 'Red peppers', crust: 'thin'},
     ],
   };
 }
@@ -67,16 +67,23 @@ function Row(props) {
                 Order Details
               </Typography>
               <Table size="small" aria-label="purchases">
-
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Sauce</TableCell>
+                    <TableCell align="right">Toppings</TableCell>
+                    <TableCell align="right">Crust</TableCell>
+                  </TableRow>
+                </TableHead>
                 <TableBody>
                   {row.details.map((detailsRow) => (
                     <TableRow key={detailsRow.contact}>
                       <TableCell component="th" scope="row">
-                        {detailsRow.people}
+                        {detailsRow.name}
                       </TableCell>
-                      <TableCell>{detailsRow.duration}</TableCell>
-                      <TableCell align="right">{detailsRow.starters}</TableCell>
-                      <TableCell align="right">{detailsRow.contact}</TableCell>
+                      <TableCell>{detailsRow.sauce}</TableCell>
+                      <TableCell align="right">{detailsRow.toppings}</TableCell>
+                      <TableCell align="right">{detailsRow.crust}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -139,7 +146,7 @@ export default function Kitchen() {
               <TableRow>
                 <TableCell />
                 <TableCell>Event ID</TableCell>
-                <TableCell align="right">Table</TableCell>
+                <TableCell align="right">Table/Remote order</TableCell>
                 <TableCell align="right">Status</TableCell>
               </TableRow>
             </TableHead>
