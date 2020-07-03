@@ -2,11 +2,7 @@ import 'date-fns';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import MomentUtils from '@date-io/moment';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -16,6 +12,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 
 import {Link} from 'react-router-dom';
+import Datepicker from '../../features/Datepicker/Datepicker';
+import Hourpicker from '../../features/Hourpicker/Hourpicker';
 
 const demoContent = [
   {hour: '12:00', status: 'available', order: null},
@@ -50,40 +48,12 @@ const renderActions = (status, order) => {
 };
 
 export default function Tables() {
-
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-
   return (
     <div>
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <Grid container justify="space-around">
-          <KeyboardDatePicker
-            disableToolbar
-            variant="inline"
-            format="MM/dd/yyyy"
-            margin="normal"
-            id="date-picker-inline"
-            label="Booking date"
-            value={selectedDate}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              'aria-label': 'change date',
-            }}
-          />
-          <KeyboardTimePicker
-            margin="normal"
-            id="time-picker"
-            label="Booking time"
-            value={selectedDate}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              'aria-label': 'change time',
-            }}
-          />
+          <Datepicker/>
+          <Hourpicker/>
         </Grid>
       </MuiPickersUtilsProvider>
       <Paper>
