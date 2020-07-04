@@ -4,6 +4,9 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { Button } from '@material-ui/core';
+import PropTypes from 'prop-types';
+
+
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -19,16 +22,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ChangeStatusModal() {
+function ChangeStatusModal({tables, updateTableStatus, id}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
   const handleOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleChangeStatus = (id, status) => {
+    handleClose();
+    updateTableStatus(id, status);
   };
 
   return (
@@ -52,15 +59,23 @@ export default function ChangeStatusModal() {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 id="transition-modal-title">Update Status</h2>
-            <button>free</button>
-            <button>thinking</button>
-            <button>ordered</button>
-            <button>prepared</button>
-            <button>delivered</button>
-            <button>paid</button>
+            {tables.map(table=> ( 
+              <Button onClick={() => handleChangeStatus(id, table.status)} key={table.id}>{table.status}</Button>
+            ))}
           </div>
         </Fade>
       </Modal>
     </div>
   );
 }
+
+ChangeStatusModal.propTypes = {
+  tables: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  updateTableStatus : PropTypes.func,
+  id : PropTypes.number,
+};
+
+
+
+
+export default ChangeStatusModal;

@@ -38,9 +38,8 @@ export const fetchFromAPI = () => {
 };
 
 export const fetchToAPI = () => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(updateTableStatus());
-  
     Axios
       .post(`${api.url}/${api.tables}`)
       .then(res => {
@@ -81,6 +80,26 @@ export default function reducer(statePart = [], action = {}) {
           active: false,
           error: action.payload,
         },
+      };
+    }
+    case UPDATE_TABLE_STATUS : {
+      const updateTable =  statePart.data.map(item=> {
+        if(item.id === action.payload.id) {
+          return {
+            id: action.payload.id,
+            ...item,
+            status: action.payload.status,
+          };
+        }
+        return item;
+      } 
+      );
+
+      console.log(updateTable);
+
+      return {
+        ...statePart,
+        data: updateTable,
       };
     }
     default:

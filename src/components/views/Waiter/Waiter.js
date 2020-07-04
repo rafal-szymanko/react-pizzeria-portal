@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import Modal from '../../features/Modal/Modal';
+import StatusModalContainer from '../../features/StatusModal/StatusModalContainer';
 
 class Waiter extends React.Component {
   static propTypes = {
@@ -17,7 +17,7 @@ class Waiter extends React.Component {
       active: PropTypes.bool,
       error: PropTypes.oneOfType([PropTypes.bool,PropTypes.string]),
     }),
-    tables: PropTypes.oneOfType([PropTypes.object, PropTypes.array]) ,
+    tables: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   }
 
   componentDidMount(){
@@ -106,7 +106,7 @@ class Waiter extends React.Component {
                     {this.renderActions(row.status)}
                   </TableCell>
                   <TableCell>
-                    <Modal></Modal>
+                    <StatusModalContainer id ={row.id}></StatusModalContainer>
                   </TableCell>
                 </TableRow>
               ))}
