@@ -11,7 +11,7 @@ import TablesNewBooking from './components/views/Tables/TablesNewBooking/TablesN
 import TablesCurrentlyBooking from './components/views/Tables/TablesCurrentlyBooking/TablesCurrentlyBooking';
 import TablesNewEvent from './components/views/Tables/TablesNewEvent/TablesNewEvent';
 import TablesCurrentlyEvent from './components/views/Tables/TablesCurrentlyEvent/TablesCurrentlyEvent';
-import Waiter from '../src/components/views/Waiter/Waiter';
+import WaiterContainer from '../src/components/views/Waiter/WaiterContainer';
 import WaiterNewOrder from './components/views/Waiter/WaiterNewOrder/WaiterNewOrder';
 import WaiterCurrentlyOrder from './components/views/Waiter/WaiterCurrentlyOrder/WaiterCurrentlyOrder';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -65,7 +65,7 @@ const routes = [
   },
   {
     path: '/waiter',
-    component: Waiter,
+    component: WaiterContainer,
   },
   {
     path: '/waiter/order/new',
